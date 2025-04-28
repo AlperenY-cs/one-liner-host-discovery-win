@@ -3,9 +3,9 @@
 This simple one-liner script is used to discover **live hosts** inside a `/20` subnet range using **only Windows CMD** (no PowerShell, no external tools).
 
 ## Script
-
+```
 for /L %i in (16,1,31) do @for /L %j in (1,1,254) do @ping -n 1 -w 100 10.2.%i.%j | find "TTL="
-
+```
 - `%i` iterates over network blocks (`10.2.16.x`, `10.2.17.x`, ..., `10.2.31.x`).
 - `%j` iterates over each host inside the block (`.1` to `.254`).
 - `ping` sends one packet (`-n 1`) with a 100ms timeout (`-w 100`).
